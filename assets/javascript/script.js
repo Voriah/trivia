@@ -91,6 +91,5 @@ function setChoiceFour() {
       }
     })
 }
-setTimeout(function() {
-  setAnswer()
-}, 1000);
+
+setAnswer()
