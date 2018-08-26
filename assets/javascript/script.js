@@ -29,18 +29,14 @@ var queryURL = "https://www.omdbapi.com/?t=the&y=" + range + "&apikey=trilogy";
   }
 
   function setChoices(){
-    // $("#choice1").html("")
-    // $("#choice1").html("") 
-    // $("#choice1").html("") 
-    // $("#choice1").html("") 
   
+  setTimeout(function () {
     setChoiceOne(); 
-  
     setChoiceTwo(); 
-  
-    setChoiceThree(); 
-  
+    setChoiceThree();
     setChoiceFour();
+  }, 1000);
+
   setTimeout(function () {
     $("p").css("visibility", "initial")
   }, 2500);
