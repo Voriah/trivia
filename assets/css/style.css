@@ -1,11 +1,15 @@
 .choiceses {
 }
 p {
-  
+  color: red;
   margin: auto;
 }
 
 #stuff {
   display: block;
   visibility: hidden;
+}
+.choiceses {
+  font-size: 20px;
+
 }
