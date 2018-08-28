@@ -1,11 +1,11 @@
-var choice1;
-var choice2;
-var choice3;
-var choice4;
-var range = Math.floor(Math.random() * 85 + 1930);
 var slot;
 var wins = 0;
 var losses = 0;
+var answerYear;
+var choiceOneYear;
+var choiceTwoYear;
+var choiceThreeYear;
+var choiceFourYear;
 
 function setAnswer() {
 var range = Math.floor(Math.random() * 85 + 1930)
@@ -29,7 +29,7 @@ var queryURL = "https://www.omdbapi.com/?t=the&y=" + range + "&apikey=trilogy";
      $(`#choice${slot}`).html(response.Title)
      $(`#choice${slot}`).attr("data-value", 1)
      console.log(response);
-     
+     answerYear = response.Year;
    }).catch(function (error) {
      console.error(error);
     });
@@ -122,11 +122,17 @@ function guessAnswer4() {
   
 }
 
+
 function setChoiceOne() { 
   var range = Math.floor(Math.random() * 85 + 1930)
+  choiceOneYear = range;
+  while (range === answerYear || range === choiceOneYear || range === choiceTwoYear || range === choiceThreeYear || range === choiceFourYear) {
+    range = Math.floor(Math.random() * 85 + 1930)
+  }
   var queryURL = "https://www.omdbapi.com/?t=the&y=" + range + "&apikey=trilogy";
   $.get(queryURL)
     .then(function (response) {
+
       if ($("#choice1").html() === "") {
         $("#choice1").html(response.Title)
       }
@@ -135,6 +141,10 @@ function setChoiceOne() {
 
 function setChoiceTwo() { 
   var range = Math.floor(Math.random() * 85 + 1930)
+  choiceTwoYear = range;
+  while (range === answerYear || range === choiceOneYear || range === choiceTwoYear || range === choiceThreeYear || range === choiceFourYear) {
+    range = Math.floor(Math.random() * 85 + 1930)
+  }
   var queryURL = "https://www.omdbapi.com/?t=the&y=" + range + "&apikey=trilogy";
   $.get(queryURL)
     .then(function (response) {
@@ -146,6 +156,10 @@ function setChoiceTwo() {
 
 function setChoiceThree() { 
   var range = Math.floor(Math.random() * 85 + 1930)
+  choiceThreeYear = range;
+  while (range === answerYear || range === choiceOneYear || range === choiceTwoYear || range === choiceThreeYear || range === choiceFourYear) {
+    range = Math.floor(Math.random() * 85 + 1930)
+  }
   var queryURL = "https://www.omdbapi.com/?t=the&y=" + range + "&apikey=trilogy";
   $.get(queryURL)
     .then(function (response) {
@@ -157,6 +171,10 @@ function setChoiceThree() {
 
 function setChoiceFour() { 
   var range = Math.floor(Math.random() * 85 + 1930)
+  choiceFourYear = range;
+  while (range === answerYear || range === choiceOneYear || range === choiceTwoYear || range === choiceThreeYear || range === choiceFourYear) {
+    range = Math.floor(Math.random() * 85 + 1930)
+  }
   var queryURL = "https://www.omdbapi.com/?t=the&y=" + range + "&apikey=trilogy";
   $.get(queryURL)
     .then(function (response) {
