@@ -12,15 +12,18 @@
 <div id="stuff">
   <p id="hint" ></p>
   <p id="year" ></p>
-  <p id="choice1" class="choiceses"></p>
+  <p id="choice1" onclick="guessAnswer1()" data-value="" class="choiceses"></p>
   <br>
-  <p id="choice2" class="choiceses"></p>
+  <p id="choice2" onclick="guessAnswer2()" data-value="" class="choiceses"></p>
   <br>
-  <p id="choice3" class="choiceses"></p>
+  <p id="choice3" onclick="guessAnswer3()" data-value="" class="choiceses"></p>
   <br>
-  <p id="choice4" class="choiceses"></p>
-  <p id=""></p>
- </div> 
+  <p id="choice4" onclick="guessAnswer4()" data-value="" class="choiceses"></p>
+</div> 
+<div class="score">
+  <p >Correct: <span id="right"></span></p>
+  <p >Wrong: <span id="rong"></span></p>
+</div>
   
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
   <script src="assets/javascript/script.js"></script>

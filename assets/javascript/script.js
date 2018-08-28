@@ -4,6 +4,8 @@ var choice3;
 var choice4;
 var range = Math.floor(Math.random() * 85 + 1930);
 var slot;
+var wins = 0;
+var losses = 0;
 
 function setAnswer() {
 var range = Math.floor(Math.random() * 85 + 1930)
@@ -18,9 +20,14 @@ var queryURL = "https://www.omdbapi.com/?t=the&y=" + range + "&apikey=trilogy";
      $("#choice2").html("")
      $("#choice3").html("")
      $("#choice4").html("")
+     $("#choice1").attr("data-value", "")
+     $("#choice2").attr("data-value", "")
+     $("#choice3").attr("data-value", "")
+     $("#choice4").attr("data-value", "")
      $("#hint").html(response.Plot)
      $("#year").html(response.Year)
      $(`#choice${slot}`).html(response.Title)
+     $(`#choice${slot}`).attr("data-value", 1)
      console.log(response);
      
    }).catch(function (error) {
@@ -29,19 +36,90 @@ var queryURL = "https://www.omdbapi.com/?t=the&y=" + range + "&apikey=trilogy";
   }
 
   function setChoices(){
-  
-  setTimeout(function () {
-    setChoiceOne(); 
-    setChoiceTwo(); 
-    setChoiceThree();
-    setChoiceFour();
-  }, 1000);
+    setTimeout(function () {
+      setChoiceOne(); 
+      setChoiceTwo(); 
+      setChoiceThree();
+      setChoiceFour();
+    }, 1000);
+    setTimeout(function () {
+      $("#stuff").css("visibility", "initial")
+    }, 2500);
+  }
 
-  setTimeout(function () {
-    $("p").css("visibility", "initial")
-  }, 2500);
-  
+function hideQ() {
+  $("#stuff").css("visibility", "hidden")
+}
+function showQ() {
+  $("#stuff").css("visibility", "initial")
+}
 
+function guessAnswer1() {
+  console.log($("#choice1").data("value"))
+  if ($("#choice1").data("value") === 1) {
+    wins++
+    $("#right").html(wins)
+    hideQ();
+    setAnswer();
+    setChoices();
+  } else {
+    losses++
+    hideQ();
+    setAnswer();
+    setChoices();
+    $("#rong").html(losses);
+  }
+}
+function guessAnswer2() {
+  console.log($("#choice2").data("value"))
+  if ($("#choice2").data("value") === 1) {
+    wins++
+    $("#right").html(wins)
+    hideQ();
+    setAnswer();
+    setChoices();
+  } else {
+    losses++
+    hideQ();
+    setAnswer();
+    setChoices();
+    $("#rong").html(losses);
+  }
+  
+}
+function guessAnswer3() {
+  console.log($("#choice3").data("value"))
+  if ($("#choice3").data("value") === 1) {
+    wins++
+    $("#right").html(wins)
+    hideQ();
+    setAnswer();
+    setChoices();
+  } else {
+    losses++
+    hideQ();
+    setAnswer();
+    setChoices();
+    $("#rong").html(losses);
+  }
+  
+}
+function guessAnswer4() {
+  console.log($("#choice4").data("value"))
+  if ($("#choice4").data("value") === 1) {
+    wins++
+    $("#right").html(wins)
+    hideQ();
+    setAnswer();
+    setChoices();
+  } else {
+    losses++
+    hideQ();
+    setAnswer();
+    setChoices();
+    $("#rong").html(losses);
+  }
+  
 }
 
 function setChoiceOne() { 
