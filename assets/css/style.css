@@ -5,11 +5,18 @@ p {
   margin: auto;
 }
 
+body {
+  font-family: 'Lora', serif;
+}
+
 #stuff {
   display: block;
   visibility: hidden;
+  margin: auto;
+  
 }
 .choiceses {
   font-size: 20px;
+  margin-top: 10px;
 
 }

@@ -5,26 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
   <title>Document</title>
 </head>
 <body>
-  <button onclick="setChoices()">Show</button>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo center">Movie Trivia</a>
+    </div>
+  </nav>
+  <nav>
+    <div class="nav-wrapper">
+        <a class="brand-logo left" >Right: <span id="right"></span></a></li>
+        <a class="brand-logo right" >Wrong: <span id="rong"></span></p></a></li>     
+        <a class="brand-logo center" id="timer">60</a></li>     
+    </div>
+  </nav>
+  <button onclick="setChoices(), countdown()">Start</button>
+
 <div id="stuff">
   <p id="hint" ></p>
   <p id="year" ></p>
-  <button id="choice1" onclick="guessAnswer1()" data-value="" class="choiceses"></button>
+  <button id="choice1" onclick="guessAnswer1()" data-value="" class="choiceses waves-effect waves-light btn-large"></button>
   <br>
-  <button id="choice2" onclick="guessAnswer2()" data-value="" class="choiceses"></button>
+  <button id="choice2" onclick="guessAnswer2()" data-value="" class="choiceses waves-effect waves-light btn-large"></button>
   <br>
-  <button id="choice3" onclick="guessAnswer3()" data-value="" class="choiceses"></button>
+  <button id="choice3" onclick="guessAnswer3()" data-value="" class="choiceses waves-effect waves-light btn-large"></button>
   <br>
-  <button id="choice4" onclick="guessAnswer4()" data-value="" class="choiceses"></button>
+  <button id="choice4" onclick="guessAnswer4()" data-value="" class="choiceses waves-effect waves-light btn-large"></button>
 </div> 
-<div class="score">
-  <p >Correct: <span id="right"></span></p>
-  <p >Wrong: <span id="rong"></span></p>
-</div>
-  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
   <script src="assets/javascript/script.js"></script>
 </body>

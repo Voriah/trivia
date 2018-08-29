@@ -6,19 +6,35 @@ var choiceOneYear;
 var choiceTwoYear;
 var choiceThreeYear;
 var choiceFourYear;
+var time = 60;
+var stopTime;
+
+function countdown() {
+  stopTime = setInterval(timer, 1000)
+}
+
+function timer () { 
+    $("#timer").text(time)
+    time--;
+    if (time < 0) {
+        clearInterval(stopTime);
+
+      }
+  }
 
 function setAnswer() {
-  $("#choice1").html("")
-  $("#choice2").html("")
-  $("#choice3").html("")
-  $("#choice4").html("")
+  hideQ();
+  $("#choice1").text("")
+  $("#choice2").text("")
+  $("#choice3").text("")
+  $("#choice4").text("")
   $("#choice1").attr("data-value", 0)
   $("#choice2").attr("data-value", 0)
   $("#choice3").attr("data-value", 0)
   $("#choice4").attr("data-value", 0)
 var range = Math.floor(Math.random() * 85 + 1930)
 slot = Math.floor(Math.random() * 4 +1);
-
+setTimeout(function() {
 var queryURL = "https://www.omdbapi.com/?t=the&y=" + range + "&apikey=trilogy";
    $.get(queryURL)
    .then(function(response) {
@@ -31,6 +47,7 @@ var queryURL = "https://www.omdbapi.com/?t=the&y=" + range + "&apikey=trilogy";
    }).catch(function (error) {
      console.error(error);
     });
+  }, 1000)
   }
 
   function setChoices(){
@@ -41,79 +58,76 @@ var queryURL = "https://www.omdbapi.com/?t=the&y=" + range + "&apikey=trilogy";
       setChoiceFour();
     }, 1000);
     setTimeout(function () {
+      $(".choiceses").css("visibility", "initial")
       $("#stuff").css("visibility", "initial")
     }, 3500);
   }
 
 function hideQ() {
-  $("#stuff").css("visibility", "hidden")
+  $(".choiceses").css("visibility", "hidden")
 }
 function showQ() {
-  $("#stuff").css("visibility", "initial")
+  $(".choiceses").css("visibility", "initial")
 }
 
 function guessAnswer1() {
-  console.log($("#choice1").data("value"))
+  hideQ();
+  console.log($("#choice1").text())
   if ($("#choice1").attr("data-value") === "1") {
     wins++
     $("#right").html(wins)
-    hideQ();
     setAnswer();
     setChoices();
   } else if ($("#choice1").attr("data-value") === "0"){
     losses++
     $("#rong").html(losses);
-    hideQ();
     setAnswer();
     setChoices();
   }
 }
 function guessAnswer2() {
+  hideQ();
   console.log($("#choice2").attr("data-value"))
   if ($("#choice2").attr("data-value") === "1") {
     wins++
     $("#right").html(wins)
-    hideQ();
     setAnswer();
     setChoices();
   } else if ($("#choice2").attr("data-value") === "0"){
     losses++
     $("#rong").html(losses);
-    hideQ();
     setAnswer();
     setChoices();
   }
   
 }
 function guessAnswer3() {
+  hideQ();
   console.log($("#choice3").attr("data-value"))
   if ($("#choice3").attr("data-value") === "1") {
     wins++
     $("#right").html(wins)
-    hideQ();
     setAnswer();
     setChoices();
   } else if ($("#choice3").attr("data-value") === "0"){
     losses++
     $("#rong").html(losses);
-    hideQ();
     setAnswer();
     setChoices();
   }
   
 }
 function guessAnswer4() {
+  hideQ();
   console.log($("#choice4").attr("data-value"))
   if ($("#choice4").attr("data-value") === "1") {
     wins++
     $("#right").html(wins)
-    hideQ();
     setAnswer();
     setChoices();
   } else if ($("#choice4").attr("data-value") === "0"){
     losses++
     $("#rong").html(losses);
-    hideQ();
     setAnswer();
     setChoices();
   }
