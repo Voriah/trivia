@@ -11,22 +11,38 @@
 </head>
 <body>
   <nav>
-    <div class="nav-wrapper">
+    <div class="nav-wrapper blue-grey lighten-1">
       <a href="#" class="brand-logo center">Movie Trivia</a>
+      <a class="brand-logo left" >High Score: <span id="high"></span></a></li>
     </div>
   </nav>
   <nav>
-    <div class="nav-wrapper">
+    <div class="nav-wrapper blue-grey lighten-1">
         <a class="brand-logo left" >Right: <span id="right"></span></a></li>
         <a class="brand-logo right" >Wrong: <span id="rong"></span></p></a></li>     
         <a class="brand-logo center" id="timer">60</a></li>     
     </div>
   </nav>
-  <button onclick="setChoices(), countdown()">Start</button>
+  <div id="result">
+  </div>
+  <div id="start">
+    <center><p>Answer as many as you can in 60 seconds!</p></center>
+    <br>
+    <center><button id="startBtn" class="center waves-effect waves-light btn-large" onclick="setChoices(), countdown()">Start</button></center>
+  </div>
+
+  <div>
+    <center><p id="correctAnswer"></p></center>
+    <div id="images">
+
+      <img id="yes" src="assets/images/correct.jpg" alt="">
+      <img id="no" src="assets/images/wrong.jpg" alt="">
+    </div>
+  </div>
 
 <div id="stuff">
-  <p id="hint" ></p>
-  <p id="year" ></p>
+  <p id="hint" class="choiceses" ></p>
+  <p id="year" class="choiceses" ></p>
   <button id="choice1" onclick="guessAnswer1()" data-value="" class="choiceses waves-effect waves-light btn-large"></button>
   <br>
   <button id="choice2" onclick="guessAnswer2()" data-value="" class="choiceses waves-effect waves-light btn-large"></button>
